@@ -3,6 +3,7 @@
 .env
 package.json
 package-lock.json
+notes.md
 
 # dependencies
 /node_modules
