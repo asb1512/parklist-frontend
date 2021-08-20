@@ -4,6 +4,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import {Provider} from 'react-redux';
+import thunk from 'redux-thunk'
+import {createStore, applyMiddleware} from 'redux';
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
