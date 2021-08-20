@@ -6,10 +6,11 @@ import reportWebVitals from './reportWebVitals';
 
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk'
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import parksReducer from './reducers/parksReducer';
 
-const store = createStore(parksReducer, applyMiddleware(thunk));
+const composedEnhancer = compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) 
+const store = createStore(parksReducer, undefined, composedEnhancer);
 
 ReactDOM.render(
   <React.StrictMode>
