@@ -2,7 +2,7 @@ export default function parksReducer (state = { name: '', location: '', image: '
 
   switch (action.type) {
 
-    case "ADD_PARK":
+    case "ADD_PARK_TO_USER":
       return { state }
 
     default:
