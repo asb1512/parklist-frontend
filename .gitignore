@@ -4,6 +4,7 @@
 package.json
 package-lock.json
 notes.md
+./src/images
 
 # dependencies
 /node_modules
