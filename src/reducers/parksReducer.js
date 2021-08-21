@@ -8,12 +8,17 @@ export default function parksReducer(state = [], action) {
       //   parks: [...state.parks],
       //   loading: true
       // }
-      return {state}
+      // make sure and code this up before you move on
+      return {
+        ...state,
+        parks: state.parks,
+        loading: true,
+      }
 
     case "ADD_PARKS":
       return {
         ...state,
-        parks: action.parks,
+        parks: action.respJson,
         loading: false
       }
 
