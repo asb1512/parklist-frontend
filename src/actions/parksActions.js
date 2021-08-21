@@ -6,7 +6,7 @@ export const fetchParks = () => {
       .then(resp => resp.json())
       .then(respJson => {
         console.log(respJson)
-        dispatch({ type: "ADD_PARKS", parks: respJson })
+        dispatch({ type: "ADD_PARKS", respJson })
       })
   }
 }
