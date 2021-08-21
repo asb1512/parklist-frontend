@@ -47,14 +47,17 @@ class App extends Component {
           </Container>
         </Navbar>
 
-        <ParksContainer />
+        <ParksContainer parks={this.props.parks} loading={this.props.loading} />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  return { parks: state }
+  return {
+    parks: state.parks,
+    loading: state.loading,
+  }
 };
 
 const mapDispatchToProps = dispatch => {
