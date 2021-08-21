@@ -47,7 +47,9 @@ class App extends Component {
           </Container>
         </Navbar>
 
-        <ParksContainer parks={this.props.parks} loading={this.props.loading} />
+        {this.props.loading ?
+          "Loading..." : <ParksContainer parks={this.props.parks} loading={this.props.loading} />
+        }
       </div>
     );
   }
