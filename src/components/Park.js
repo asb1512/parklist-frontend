@@ -2,36 +2,28 @@ import React, {Component} from 'react';
 import Image from 'react-bootstrap/Image';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import { connect } from 'react-redux';
 
 class Park extends Component {
-  state = {
-    show: true,
-  }
-
-  handleShow = () => {
-    console.log("Park.js/handleShow()")
-    this.setState({show: true})
-  }
-
-  handleClose = () => {
-    console.log("Park.js/handleClose()")
-    this.setState({show: false})
-  }
 
   render() {
-    console.log("Park render()", this.state.show)
+    console.log("Modal", this.props.park)
     return (
-      <Modal show={this.state.show} onHide={this.handleClose}>
+      <Modal
+        show={this.props.show}
+        onHide={this.props.closeModal}
+        fullscreen
+      >
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>{this.props.park.name}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          <Image src={this.props.park.image} fluid />
+        </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={this.handleClose}>
+          <Button variant="secondary" onClick={this.props.closeModal}>
             Close
           </Button>
-          <Button variant="primary" onClick={this.handleClose}>
+          <Button variant="primary" onClick={this.props.closeModal}>
             Save Changes
           </Button>
         </Modal.Footer>
@@ -44,4 +36,4 @@ const mapStateToProps = state => {
   return {}
 }
 
-export default connect(mapStateToProps, null)(Park);
+export default Park;
