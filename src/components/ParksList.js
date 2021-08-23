@@ -1,27 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
-import Park from './Park';
-
-
 
 class ParksList extends Component {
-
-  renderPark = (park) => {
-    console.log(`${park.name} got clicked!`)
-    return (
-        <Park park={park} />
-    )
+  state = {
+    park: {},
   }
 
   render() {
-
+    console.log("ParksList render()", this.state)
     const parksArray = this.props.parks?.map(park => {
       return (
-        <Card style={{ width: '18rem' }} key={park.name} >
+        <Card style={{ width: '18rem' }} key={park.name} className={"m3"} >
           <Card.Img variant="top" src={park.small_image} alt={park.name} />
           <Card.Body>
             <Card.Title>{park.name}</Card.Title>
@@ -38,7 +31,7 @@ class ParksList extends Component {
         </Card>
         )
       })
-
+      
     return (
       <div>
         {parksArray}
@@ -47,4 +40,8 @@ class ParksList extends Component {
   }
 };
 
-export default ParksList;
+const mapDispatchToProps = (dispatch, park) => {
+  dispatch({type: "UPDATE_CURRENT_VIEW"});
+}
+
+export default connect(null, mapDispatchToProps)(ParksList);
