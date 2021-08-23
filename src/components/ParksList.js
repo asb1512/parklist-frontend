@@ -1,25 +1,46 @@
 import React, { Component } from 'react';
+
+// import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
+// import Park from './Park';
+
+
+
 class ParksList extends Component {
 
+  
+
+  // renderPark = (park) => {
+  //   return (
+  //     <Container style={{ zIndex: 100 }} >
+  //       <Park park={park} />
+  //     </Container>
+  //   )
+  // }
+
   render() {
-    const parksArray = this.props.parks.map(park => {
+
+    const parksArray = this.props.parks?.map(park => {
       return (
         <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={park.image} />
+          <Card.Img variant="top" src={park.small_image} alt={park.name} />
           <Card.Body>
-            <Card.Title>Card Title</Card.Title>
+            <Card.Title>{park.name}</Card.Title>
             <Card.Text>
-              Some quick example text to build on the card title and make up the bulk of
-              the card's content.
+              Located in {park.location}
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <Button
+              // onClick={(park) => this.renderPark(park)}
+              variant="primary"
+              className="rounded-pill"
+            >Discover
+            </Button>
           </Card.Body>
         </Card>
-      )
-    })
+        )
+      })
 
     return (
       <div>
