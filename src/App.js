@@ -11,11 +11,35 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import ParksContainer from './components/ParksContainer';
 
 class App extends Component {
+  // an attempt force fetch to be called
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     loading: true
+  //   }
+
+  //   fetchParks();
+  // }
+
   componentDidMount() {
+    // if (this.props.parks) {
+    //   this.setState({loading: false})
+    // } else {
+    //   this.setState({loading: true})
+    // }
     fetchParks();
   }
 
   render() {
+
+    // uncomment if the API decideds it wants to work properly
+    // let bodyContent;
+    // if (this.state.loading) {
+    //   bodyContent = <div>Loading...</div>
+    // } else {
+    //   bodyContent = <ParksContainer parks={this.props.parks} loading={this.props.loading} />
+    // }
+
     return (
       <div className="App">
         <Navbar bg="light" expand="lg">
@@ -47,6 +71,8 @@ class App extends Component {
         </Navbar>
 
         <ParksContainer parks={this.props.parks} loading={this.props.loading} />
+        {/* uncomment if the API decideds it wants to work properly */}
+        {/* {bodyContent} */}
       </div>
     );
   }
