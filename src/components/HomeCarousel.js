@@ -8,7 +8,7 @@ class HomeCarousel extends Component {
     console.log("HomeCarousel render()", this.props.parks)
     const parksArray = this.props.parks?.map(park => {
       return (
-        <Carousel.Item interval={2000} key={park.name}>
+        <Carousel.Item interval={5000} key={park.name}>
           <img
             className="d-block w-100"
             src={park.image}
@@ -23,9 +23,11 @@ class HomeCarousel extends Component {
     })
 
     return (
-      <Carousel>
-        {parksArray}
-      </Carousel>
+      <Container fluid>
+        <Carousel>
+          {parksArray}
+        </Carousel>
+      </Container>
     )
   }
 }
