@@ -24,7 +24,7 @@ class App extends Component {
 
   state = {
     park: {},
-    show: false,
+    showParkModal: false,
   }
 
   componentDidMount() {
@@ -101,7 +101,7 @@ class App extends Component {
         {/* {bodyContent} */}
         <Park
           park={this.state.park}
-          show={this.state.show}
+          show={this.state.showParkModal}
           closeModal={this.closeModal.bind(this)}
         />
       </div>
