@@ -12,7 +12,6 @@ import ParksContainer from './components/ParksContainer';
 
 class App extends Component {
   componentDidMount() {
-    console.log("componentDidMount", this.props)
     fetchParks();
   }
 
@@ -47,9 +46,7 @@ class App extends Component {
           </Container>
         </Navbar>
 
-        {this.props.loading ?
-          "Loading..." : <ParksContainer parks={this.props.parks} loading={this.props.loading} />
-        }
+        <ParksContainer parks={this.props.parks} loading={this.props.loading} />
       </div>
     );
   }
@@ -62,10 +59,10 @@ const mapStateToProps = state => {
   }
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     fetchParks: () => dispatch(fetchParks()),
   };
 };
 
-export default connect(mapStateToProps, fetchParks)(App);
+export default connect(mapStateToProps, fetchParks())(App);
