@@ -23,7 +23,7 @@ class HomeCarousel extends Component {
     })
 
     return (
-      <Container fluid>
+      <Container fluid className={"m0"}>
         <Carousel>
           {parksArray}
         </Carousel>
