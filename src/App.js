@@ -90,7 +90,7 @@ class App extends Component {
           </Container>
         </Navbar>
 
-        <HomeCarousel />
+        <HomeCarousel parks={this.props.parks} />
 
         <ParksContainer
           parks={this.props.parks}
