@@ -5,7 +5,7 @@ class Park extends Component {
 
   render() {
     return (
-      <div>Park Component here!</div>
+      <div>This is a Park component.</div>
     )
   }
 }
