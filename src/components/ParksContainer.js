@@ -8,13 +8,18 @@ import Col from 'react-bootstrap/Col';
 class ParksContainer extends Component {
 
   render() {
+    console.log("Parks Container Render", this.props.parks)
     return (
       <Container>
         <Row>
           <Col>
-          {this.props.loading ?
-            "Loading" : <ParksList parks={this.props.parks} loading={this.props.loading} />
-          }
+            <ParksList parks={this.props.parks.slice(0,21)} />
+          </Col>
+          <Col>
+            <ParksList parks={this.props.parks.slice(21,42)} />
+          </Col>
+          <Col>
+            <ParksList parks={this.props.parks.slice(42)} />
           </Col>
         </Row>
       </Container>
