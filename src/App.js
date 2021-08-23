@@ -9,6 +9,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import ParksContainer from './components/ParksContainer';
+import Park from './components/Park';
 
 class App extends Component {
   // an attempt force fetch to be called
@@ -21,6 +22,11 @@ class App extends Component {
   //   fetchParks();
   // }
 
+  state = {
+    park: {},
+    show: false,
+  }
+
   componentDidMount() {
     // if (this.props.parks) {
     //   this.setState({loading: false})
@@ -28,6 +34,20 @@ class App extends Component {
     //   this.setState({loading: true})
     // }
     fetchParks();
+  }
+
+  renderParkModal(park) {
+    this.setState({
+      park: park,
+      show: true,
+    })
+  }
+
+  closeModal = () => {
+    this.setState({
+      park: {},
+      show: false
+    })
   }
 
   render() {
@@ -70,9 +90,18 @@ class App extends Component {
           </Container>
         </Navbar>
 
-        <ParksContainer parks={this.props.parks} loading={this.props.loading} />
+        <ParksContainer
+          parks={this.props.parks}
+          loading={this.props.loading}
+          buttonClick={this.renderParkModal.bind(this)}
+        />
         {/* uncomment if the API decideds it wants to work properly */}
         {/* {bodyContent} */}
+        <Park
+          park={this.state.park}
+          show={this.state.show}
+          closeModal={this.closeModal.bind(this)}
+        />
       </div>
     );
   }
