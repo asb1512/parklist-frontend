@@ -10,6 +10,7 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import ParksContainer from './components/ParksContainer';
 import Park from './components/Park';
+import HomeCarousel from './components/HomeCarousel';
 
 class App extends Component {
   // an attempt force fetch to be called
@@ -89,6 +90,8 @@ class App extends Component {
             </Navbar.Collapse>
           </Container>
         </Navbar>
+
+        <HomeCarousel />
 
         <ParksContainer
           parks={this.props.parks}
