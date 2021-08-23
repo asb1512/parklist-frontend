@@ -16,6 +16,12 @@ export default function parksReducer(state = [], action) {
         loading: false
       }
 
+    case "UPDATE_CURRENT_VIEW":
+      return {
+        ...state,
+        currentView: {park: action.park, show: true}
+      }
+
     case "ADD_PARK_TO_USER":
       return { state }
 
