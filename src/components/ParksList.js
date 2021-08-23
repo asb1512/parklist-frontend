@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
@@ -22,7 +21,7 @@ class ParksList extends Component {
               Located in {park.location}
             </Card.Text>
             <Button
-              onClick={() => this.renderPark(park)}
+              onClick={() => this.props.buttonClick(park)}
               variant="primary"
               className="rounded-pill"
             >Discover
@@ -40,8 +39,4 @@ class ParksList extends Component {
   }
 };
 
-const mapDispatchToProps = (dispatch, park) => {
-  dispatch({type: "UPDATE_CURRENT_VIEW"});
-}
-
-export default connect(null, mapDispatchToProps)(ParksList);
+export default ParksList;
