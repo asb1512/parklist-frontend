@@ -16,13 +16,22 @@ class ParksContainer extends Component {
         <Row>
           {this.props.loading ? <div>Loading...</div> : null}
           <Col>
-            <ParksList parks={this.props.parks?.slice(0,21)} />
+            <ParksList
+              parks={this.props.parks?.slice(0,21)}
+              buttonClick={this.props.buttonClick}
+            />
           </Col>
           <Col>
-            <ParksList parks={this.props.parks?.slice(21,42)} />
+            <ParksList
+              parks={this.props.parks?.slice(21,42)}
+              buttonClick={this.props.buttonClick}
+            />
           </Col>
           <Col>
-            <ParksList parks={this.props.parks?.slice(42)} />
+            <ParksList
+              parks={this.props.parks?.slice(42)}
+              buttonClick={this.props.buttonClick}
+            />
           </Col>
         </Row>
       </Container>
