@@ -18,15 +18,6 @@ import Park from './components/Park';
 import HomeCarousel from './components/HomeCarousel';
 
 class App extends Component {
-  // an attempt force fetch to be called
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     loading: true
-  //   }
-
-  //   fetchParks();
-  // }
 
   state = {
     park: {},
@@ -36,11 +27,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // if (this.props.parks) {
-    //   this.setState({loading: false})
-    // } else {
-    //   this.setState({loading: true})
-    // }
     fetchParks();
   }
 
@@ -73,13 +59,6 @@ class App extends Component {
   }
 
   render() {
-    // uncomment if the API decideds it wants to work properly
-    // let bodyContent;
-    // if (this.state.loading) {
-    //   bodyContent = <div>Loading...</div>
-    // } else {
-    //   bodyContent = <ParksContainer parks={this.props.parks} loading={this.props.loading} />
-    // }
 
     return (
       <Router>
@@ -98,7 +77,6 @@ class App extends Component {
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                  {/* <Nav.Link onClick={() => this.renderHomeCarousel()}>Home</Nav.Link> */}
                   <Nav.Link>
                     <Link
                       to="/"
@@ -108,7 +86,6 @@ class App extends Component {
                       Home
                     </Link>
                   </Nav.Link>
-                  {/* <Nav.Link onClick={() => this.renderParks()}>Parks</Nav.Link> */}
                   <Nav.Link>
                     <Link
                       to="/parks"
@@ -142,23 +119,7 @@ class App extends Component {
             <Route path="/">
               <HomeCarousel parks={this.props.parks} />
             </Route>
-            <Route path={`/parks/${this.state.park.name}`}>
-              {/* <Park
-                park={this.state.park}
-                show={this.state.showParkModal}
-                closeModal={this.closeModal.bind(this)}
-              /> */}
-            </Route>
           </Switch>
-          {/* {this.state.renderHomeCarousel ? <HomeCarousel parks={this.props.parks} /> : null} */}
-
-          {/* {this.state.renderParksContainer ? <ParksContainer
-            parks={this.props.parks}
-            loading={this.props.loading}
-            buttonClick={this.renderParkModal.bind(this)}
-          /> : null} */}
-          {/* uncomment if the API decideds it wants to work properly */}
-          {/* {bodyContent} */}
           <Park
             park={this.state.park}
             show={this.state.showParkModal}

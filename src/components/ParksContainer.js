@@ -8,8 +8,6 @@ import Col from 'react-bootstrap/Col';
 class ParksContainer extends Component {
 
   render() {
-    console.log("Parks Container Render", this.props.parks)
-    // this return statement to be used when Rails API is actually working
     return (
       <Container>
         <Row>
@@ -35,23 +33,6 @@ class ParksContainer extends Component {
         </Row>
       </Container>
     )
-
-    // use this return statement when the Rails API isn't working properly
-    // return (
-    //   <Container>
-    //     <Row>
-    //       <Col>
-    //         <ParksList parks={apiResponse.slice(0,21)} />
-    //       </Col>
-    //       <Col>
-    //         <ParksList parks={apiResponse.slice(21,42)} />
-    //       </Col>
-    //       <Col>
-    //         <ParksList parks={apiResponse.slice(42)} />
-    //       </Col>
-    //     </Row>
-    //   </Container>
-    // )
   }
 }
 
