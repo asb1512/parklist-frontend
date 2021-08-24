@@ -6,6 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import { LinkContainer } from 'react-router-bootstrap';
 import { Component } from 'react';
 import { fetchParks } from './actions/parksActions';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -48,24 +49,21 @@ class App extends Component {
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                  <Nav.Link>
-                    <Link
+                  <LinkContainer
                       to="/"
                       style={{ textDecoration: "none" }}
                       className="text-secondary"
                     >
-                      Home
-                    </Link>
-                  </Nav.Link>
-                  <Nav.Link>
-                    <Link
-                      to="/parks"
-                      style={{ textDecoration: "none" }}
-                      className="text-secondary"
-                    >
-                      Parks
-                    </Link>
-                  </Nav.Link>
+                    <Nav.Link>Home</Nav.Link>
+                  </LinkContainer>
+                  <LinkContainer
+                    to="/parks"
+                    style={{ textDecoration: "none" }}
+                    className="text-secondary"
+                  >
+                    <Nav.Link>Parks</Nav.Link>
+                  </LinkContainer>
+                  
                   <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
