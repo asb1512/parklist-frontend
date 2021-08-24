@@ -18,11 +18,6 @@ import HomeCarousel from './components/HomeCarousel';
 
 class App extends Component {
 
-  state = {
-    park: {},
-    showParkModal: false,
-  }
-
   componentDidMount() {
     fetchParks();
   }
@@ -58,7 +53,7 @@ class App extends Component {
                       style={{ textDecoration: "none" }}
                       className="text-secondary"
                     >
-                    Home
+                      Home
                     </Link>
                   </Nav.Link>
                   <Nav.Link>
@@ -67,7 +62,7 @@ class App extends Component {
                       style={{ textDecoration: "none" }}
                       className="text-secondary"
                     >
-                    Parks
+                      Parks
                     </Link>
                   </Nav.Link>
                   <NavDropdown title="Dropdown" id="basic-nav-dropdown">
