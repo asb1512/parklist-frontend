@@ -15,8 +15,8 @@ class HomeCarousel extends Component {
             alt={park.name}
           />
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>{park.name} National Park</h3>
+            <p>{park.location}</p>
           </Carousel.Caption>
         </Carousel.Item>
       )
