@@ -14,7 +14,6 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import ParksContainer from './components/ParksContainer';
-import Park from './components/Park';
 import HomeCarousel from './components/HomeCarousel';
 
 class App extends Component {
@@ -22,19 +21,10 @@ class App extends Component {
   state = {
     park: {},
     showParkModal: false,
-    renderHomeCarousel: true,
-    renderParksContainer: false,
   }
 
   componentDidMount() {
     fetchParks();
-  }
-
-  renderHomeCarousel = () => {
-    this.setState({
-      renderHomeCarousel: true,
-      renderParksContainer: false,
-    })
   }
 
   renderParks = () => {
@@ -44,19 +34,7 @@ class App extends Component {
     })
   }
 
-  renderParkModal(park) {
-    this.setState({
-      park: park,
-      show: true,
-    })
-  }
 
-  closeModal = () => {
-    this.setState({
-      park: {},
-      show: false
-    })
-  }
 
   render() {
 
@@ -83,7 +61,7 @@ class App extends Component {
                       style={{ textDecoration: "none" }}
                       className="text-secondary"
                     >
-                      Home
+                    Home
                     </Link>
                   </Nav.Link>
                   <Nav.Link>
@@ -92,7 +70,7 @@ class App extends Component {
                       style={{ textDecoration: "none" }}
                       className="text-secondary"
                     >
-                      Parks
+                    Parks
                     </Link>
                   </Nav.Link>
                   <NavDropdown title="Dropdown" id="basic-nav-dropdown">
@@ -120,11 +98,6 @@ class App extends Component {
               <HomeCarousel parks={this.props.parks} />
             </Route>
           </Switch>
-          <Park
-            park={this.state.park}
-            show={this.state.showParkModal}
-            closeModal={this.closeModal.bind(this)}
-          />
         </div>
       </Router>
     );
