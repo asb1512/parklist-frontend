@@ -16,14 +16,14 @@ class ParksContainer extends Component {
   showParkModal(park) {
     this.setState({
       park: park,
-      show: true,
+      showParkModal: true,
     })
   }
 
   closeModal = () => {
     this.setState({
       park: {},
-      show: false
+      showParkModal: false
     })
   }
 
