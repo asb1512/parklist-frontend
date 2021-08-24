@@ -29,7 +29,7 @@ class App extends Component {
   // }
 
   state = {
-    park: {},
+    park: null,
     showParkModal: false,
     renderHomeCarousel: true,
     renderParksContainer: false,
@@ -73,7 +73,6 @@ class App extends Component {
   }
 
   render() {
-
     // uncomment if the API decideds it wants to work properly
     // let bodyContent;
     // if (this.state.loading) {
@@ -105,7 +104,7 @@ class App extends Component {
                       to="/"
                       style={{ textDecoration: "none" }}
                       className="text-secondary"
-                      >
+                    >
                       Home
                     </Link>
                   </Nav.Link>
@@ -115,7 +114,7 @@ class App extends Component {
                       to="/parks"
                       style={{ textDecoration: "none" }}
                       className="text-secondary"
-                      >
+                    >
                       Parks
                     </Link>
                   </Nav.Link>
@@ -131,6 +130,7 @@ class App extends Component {
             </Container>
           </Navbar>
 
+          {/* React route declarations */}
           <Switch>
             <Route path="/parks">
               <ParksContainer
@@ -141,6 +141,13 @@ class App extends Component {
             </Route>
             <Route path="/">
               <HomeCarousel parks={this.props.parks} />
+            </Route>
+            <Route path={"/parks" + this.state.park.name}>
+              <Park
+                park={this.state.park}
+                show={this.state.showParkModal}
+                closeModal={this.closeModal.bind(this)}
+              />
             </Route>
           </Switch>
 
