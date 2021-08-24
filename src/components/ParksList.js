@@ -20,7 +20,7 @@ class ParksList extends Component {
               Located in {park.location}
             </Card.Text>
               <Button
-                href={`/parks/${park.name}`}
+                // href={`/parks/${park.name}`}
                 onClick={() => this.props.buttonClick(park)}
                 variant="primary"
                 className="rounded-pill"
