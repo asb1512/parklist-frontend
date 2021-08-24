@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import { LinkContainer } from 'react-router-bootstrap';
 import { Component } from 'react';
