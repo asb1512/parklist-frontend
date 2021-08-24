@@ -1,4 +1,12 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
+import { LinkContainer } from 'react-router-bootstrap';
 import ParksList from './ParksList';
 import Park from './Park';
 // import apiResponse from './apiResponse';
@@ -34,13 +42,13 @@ class ParksContainer extends Component {
           {this.props.loading ? <div>Loading...</div> : null}
           <Col>
             <ParksList
-              parks={this.props.parks?.slice(0,21)}
+              parks={this.props.parks?.slice(0, 21)}
               showPark={this.showParkModal.bind(this)}
             />
           </Col>
           <Col>
             <ParksList
-              parks={this.props.parks?.slice(21,42)}
+              parks={this.props.parks?.slice(21, 42)}
               showPark={this.showParkModal.bind(this)}
             />
           </Col>
