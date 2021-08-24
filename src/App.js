@@ -99,8 +99,26 @@ class App extends Component {
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                  <Nav.Link onClick={() => this.renderHomeCarousel()}>Home</Nav.Link>
-                  <Nav.Link onClick={() => this.renderParks()}>Parks</Nav.Link>
+                  {/* <Nav.Link onClick={() => this.renderHomeCarousel()}>Home</Nav.Link> */}
+                  <Nav.Link>
+                    <Link
+                      to="/"
+                      style={{ textDecoration: "none" }}
+                      className="text-secondary"
+                      >
+                      Home
+                    </Link>
+                  </Nav.Link>
+                  {/* <Nav.Link onClick={() => this.renderParks()}>Parks</Nav.Link> */}
+                  <Nav.Link>
+                    <Link
+                      to="/parks"
+                      style={{ textDecoration: "none" }}
+                      className="text-secondary"
+                      >
+                      Parks
+                    </Link>
+                  </Nav.Link>
                   <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -114,24 +132,25 @@ class App extends Component {
           </Navbar>
 
           <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+            <Route path="/parks">
+              <ParksContainer
+                parks={this.props.parks}
+                loading={this.props.loading}
+                buttonClick={this.renderParkModal.bind(this)}
+              />
+            </Route>
+            <Route path="/">
+              <HomeCarousel parks={this.props.parks} />
+            </Route>
+          </Switch>
 
-          {this.state.renderHomeCarousel ? <HomeCarousel parks={this.props.parks} /> : null}
+          {/* {this.state.renderHomeCarousel ? <HomeCarousel parks={this.props.parks} /> : null} */}
 
-          {this.state.renderParksContainer ? <ParksContainer
+          {/* {this.state.renderParksContainer ? <ParksContainer
             parks={this.props.parks}
             loading={this.props.loading}
             buttonClick={this.renderParkModal.bind(this)}
-          /> : null}
+          /> : null} */}
           {/* uncomment if the API decideds it wants to work properly */}
           {/* {bodyContent} */}
           <Park
