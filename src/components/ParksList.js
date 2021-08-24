@@ -17,7 +17,7 @@ class ParksList extends Component {
             </Card.Text>
               <Button
                 // href={`/parks/${park.name}`}
-                onClick={() => this.props.buttonClick(park)}
+                onClick={() => this.props.showPark(park)}
                 variant="primary"
                 className="rounded-pill"
               >Discover
