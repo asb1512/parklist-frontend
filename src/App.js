@@ -29,7 +29,7 @@ class App extends Component {
   // }
 
   state = {
-    park: null,
+    park: {},
     showParkModal: false,
     renderHomeCarousel: true,
     renderParksContainer: false,
@@ -142,7 +142,7 @@ class App extends Component {
             <Route path="/">
               <HomeCarousel parks={this.props.parks} />
             </Route>
-            <Route path={"/parks" + this.state.park.name}>
+            <Route path={`/parks/${this.state.park.name}`}>
               <Park
                 park={this.state.park}
                 show={this.state.showParkModal}
