@@ -64,6 +64,12 @@ class ParksContainer extends Component {
           show={this.state.showParkModal}
           closeModal={this.closeModal.bind(this)}
         />
+
+        <Switch>
+          <Route path={`${useRouteMatch().path}`}>
+            {}
+          </Route>
+        </Switch>
       </Container>
     )
   }
