@@ -7,7 +7,6 @@ import Button from 'react-bootstrap/Button';
 class Park extends Component {
 
   render() {
-    console.log("Modal", this.props.park)
     return (
       <Modal
         show={this.props.show}
