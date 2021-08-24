@@ -33,8 +33,4 @@ class Park extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {}
-}
-
 export default Park;
