@@ -8,6 +8,11 @@ import Col from 'react-bootstrap/Col';
 
 class ParksContainer extends Component {
 
+  state = {
+    park: {},
+    showParkModal: false,
+  }
+
   renderParkModal(park) {
     this.setState({
       park: park,
