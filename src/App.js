@@ -33,6 +33,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          {/* Bootstrap navbar */}
           <Navbar bg="light" expand="lg">
             <Container>
               <Navbar.Brand href="#home">
@@ -83,7 +84,6 @@ class App extends Component {
               <ParksContainer
                 parks={this.props.parks}
                 loading={this.props.loading}
-                buttonClick={this.renderParkModal.bind(this)}
               />
             </Route>
             <Route path="/">
