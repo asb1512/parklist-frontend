@@ -4,12 +4,8 @@ import Button from 'react-bootstrap/Button';
 
 
 class ParksList extends Component {
-  state = {
-    park: {},
-  }
 
   render() {
-    console.log("ParksList render()", this.state)
     const parksArray = this.props.parks?.map(park => {
       return (
         <Card style={{ width: '18rem' }} key={park.name} className={"m3"} >
