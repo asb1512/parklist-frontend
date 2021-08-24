@@ -1,11 +1,26 @@
 import React, { Component } from 'react';
 import ParksList from './ParksList';
+import Park from './Park';
 // import apiResponse from './apiResponse';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 class ParksContainer extends Component {
+
+  renderParkModal(park) {
+    this.setState({
+      park: park,
+      show: true,
+    })
+  }
+
+  closeModal = () => {
+    this.setState({
+      park: {},
+      show: false
+    })
+  }
 
   render() {
     return (
@@ -31,6 +46,11 @@ class ParksContainer extends Component {
             />
           </Col>
         </Row>
+        <Park
+          park={this.state.park}
+          show={this.state.showParkModal}
+          closeModal={this.closeModal.bind(this)}
+        />
       </Container>
     )
   }
