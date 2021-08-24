@@ -143,14 +143,13 @@ class App extends Component {
               <HomeCarousel parks={this.props.parks} />
             </Route>
             <Route path={`/parks/${this.state.park.name}`}>
-              <Park
+              {/* <Park
                 park={this.state.park}
                 show={this.state.showParkModal}
                 closeModal={this.closeModal.bind(this)}
-              />
+              /> */}
             </Route>
           </Switch>
-
           {/* {this.state.renderHomeCarousel ? <HomeCarousel parks={this.props.parks} /> : null} */}
 
           {/* {this.state.renderParksContainer ? <ParksContainer
