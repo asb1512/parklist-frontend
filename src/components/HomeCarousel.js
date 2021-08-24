@@ -5,7 +5,6 @@ import Carousel from 'react-bootstrap/Carousel'
 class HomeCarousel extends Component {
 
   render() {
-    console.log("HomeCarousel render()", this.props.parks)
     const parksArray = this.props.parks?.map(park => {
       return (
         <Carousel.Item interval={5000} key={park.name}>
