@@ -13,7 +13,7 @@ class ParksContainer extends Component {
     showParkModal: false,
   }
 
-  renderParkModal(park) {
+  showParkModal(park) {
     this.setState({
       park: park,
       show: true,
@@ -35,19 +35,19 @@ class ParksContainer extends Component {
           <Col>
             <ParksList
               parks={this.props.parks?.slice(0,21)}
-              buttonClick={this.props.buttonClick}
+              showPark={this.showParkModal.bind(this)}
             />
           </Col>
           <Col>
             <ParksList
               parks={this.props.parks?.slice(21,42)}
-              buttonClick={this.props.buttonClick}
+              showPark={this.showParkModal.bind(this)}
             />
           </Col>
           <Col>
             <ParksList
               parks={this.props.parks?.slice(42)}
-              buttonClick={this.props.buttonClick}
+              showPark={this.showParkModal.bind(this)}
             />
           </Col>
         </Row>
