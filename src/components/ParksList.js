@@ -19,12 +19,13 @@ class ParksList extends Component {
             <Card.Text>
               Located in {park.location}
             </Card.Text>
-            <Button
-              onClick={() => this.props.buttonClick(park)}
-              variant="primary"
-              className="rounded-pill"
-            >Discover
-            </Button>
+              <Button
+                href={`/parks/${park.name}`}
+                onClick={() => this.props.buttonClick(park)}
+                variant="primary"
+                className="rounded-pill"
+              >Discover
+              </Button>
           </Card.Body>
         </Card>
         )
