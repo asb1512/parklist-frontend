@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import { LinkContainer } from 'react-router-bootstrap';
 
 
 class ParksList extends Component {
@@ -15,13 +16,14 @@ class ParksList extends Component {
             <Card.Text>
               Located in {park.location}
             </Card.Text>
-              <Button
-                // href={`/parks/${park.name}`}
-                onClick={() => this.props.showPark(park)}
-                variant="primary"
-                className="rounded-pill"
-              >Discover
-              </Button>
+              <LinkContainer to={`${match.url}/${park.name.toLowerCase()}`}>
+                <Button
+                  // onClick={() => this.props.showPark(park)}
+                  variant="primary"
+                  className="rounded-pill"
+                >Discover
+                </Button>
+              </LinkContainer>
           </Card.Body>
         </Card>
         )
