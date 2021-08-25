@@ -10,6 +10,7 @@ import Park from './Park';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Spinner from 'react-bootstrap/Spinner';
 
 function ParksContainer(props) {
 
@@ -30,42 +31,63 @@ function ParksContainer(props) {
     window.history.back();
   };
 
-  return (
-    <Container>
-      <Row>
-        {props.loading ? <div>Loading...</div> : null}
+  const spinnerWheel = () => {
+    return (
+      <Container className="justify-content-center">
         <Col>
-          <ParksList
-            parks={props.parks?.slice(0, 21)}
-            showPark={showParkModal}
-          />
+          <Row>
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          </Row>
         </Col>
-        <Col>
-          <ParksList
-            parks={props.parks?.slice(21, 42)}
-            showPark={showParkModal}
-          />
-        </Col>
-        <Col>
-          <ParksList
-            parks={props.parks?.slice(42)}
-            showPark={showParkModal}
-          />
-        </Col>
-      </Row>
-      <Park
-        park={park}
-        show={showPark}
-        closeModal={closeModal}
-      />
+      </Container>
+    );
+  };
 
-      <Switch>
-        <Route path={`${match.path}/:parkName`}>
-          {<div>Hello.</div>}
-        </Route>
-      </Switch>
+  const parkColumns = () => {
+    return (
+      <Container>
+        <Row>
+          <Col>
+            <ParksList
+              parks={props.parks?.slice(0, 21)}
+              showPark={showParkModal}
+            />
+          </Col>
+          <Col>
+            <ParksList
+              parks={props.parks?.slice(21, 42)}
+              showPark={showParkModal}
+            />
+          </Col>
+          <Col>
+            <ParksList
+              parks={props.parks?.slice(42)}
+              showPark={showParkModal}
+            />
+          </Col>
+        </Row>
+        <Park
+          park={park}
+          show={showPark}
+          closeModal={closeModal}
+        />
+
+        <Switch>
+          <Route path={`${match.path}/:parkName`}>
+            {null}
+          </Route>
+        </Switch>
     </Container>
     );
+  };
+
+  if (props.parks) {
+    return parkColumns();
+  } else {
+    return spinnerWheel();
+  }
 };
 
 export default ParksContainer;
