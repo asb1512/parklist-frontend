@@ -36,7 +36,11 @@ function ParksContainer(props) {
       <Container className="justify-content-center">
         <Col>
           <Row>
-            <Spinner animation="border" role="status">
+            <Spinner
+              className="justify-content-center"
+              animation="border"
+              role="status"
+            >
               <span className="visually-hidden">Loading...</span>
             </Spinner>
           </Row>
