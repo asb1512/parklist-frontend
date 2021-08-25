@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,65 +14,59 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-class ParksContainer extends Component {
+function ParksContainer(props) {
 
-  state = {
-    park: {},
-    showParkModal: false,
+  let match = useRouteMatch();
+
+  const [park, setPark] = useState({});
+  const [showPark, setShowPark] = useState(false);
+
+  const showParkModal = (park) => {
+    setPark(park);
+    setShowPark(true);
   }
 
-  showParkModal(park) {
-    this.setState({
-      park: park,
-      showParkModal: true,
-    })
+  const closeModal = () => {
+    setPark({});
+    setShowPark(false)
   }
 
-  closeModal = () => {
-    this.setState({
-      park: {},
-      showParkModal: false
-    })
-  }
+  return (
+    <Container>
+      <Row>
+        {props.loading ? <div>Loading...</div> : null}
+        <Col>
+          <ParksList
+            parks={props.parks?.slice(0, 21)}
+            showPark={showParkModal}
+          />
+        </Col>
+        <Col>
+          <ParksList
+            parks={props.parks?.slice(21, 42)}
+            showPark={showParkModal}
+          />
+        </Col>
+        <Col>
+          <ParksList
+            parks={props.parks?.slice(42)}
+            showPark={showParkModal}
+          />
+        </Col>
+      </Row>
+      <Park
+        park={park}
+        show={showPark}
+        closeModal={closeModal}
+      />
 
-  render() {
-    return (
-      <Container>
-        <Row>
-          {this.props.loading ? <div>Loading...</div> : null}
-          <Col>
-            <ParksList
-              parks={this.props.parks?.slice(0, 21)}
-              showPark={this.showParkModal.bind(this)}
-            />
-          </Col>
-          <Col>
-            <ParksList
-              parks={this.props.parks?.slice(21, 42)}
-              showPark={this.showParkModal.bind(this)}
-            />
-          </Col>
-          <Col>
-            <ParksList
-              parks={this.props.parks?.slice(42)}
-              showPark={this.showParkModal.bind(this)}
-            />
-          </Col>
-        </Row>
-        <Park
-          park={this.state.park}
-          show={this.state.showParkModal}
-          closeModal={this.closeModal.bind(this)}
-        />
-
-        <Switch>
-          <Route path={`${useRouteMatch().path}`}>
-            {}
-          </Route>
-        </Switch>
-      </Container>
-    )
-  }
-}
+      <Switch>
+        <Route path={`${match.path}/:parkName`}>
+          {}
+        </Route>
+      </Switch>
+    </Container>
+    );
+};
 
 export default ParksContainer;
