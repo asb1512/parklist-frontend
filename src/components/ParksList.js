@@ -14,7 +14,7 @@ function ParksList(props) {
 
   const parksArray = props.parks?.map(park => {
     return (
-      <Card style={{ width: '18rem' }} key={park.name} className={"m3"} >
+      <Card style={{ width: '20rem' }} key={park.name} className={"m3"} fluid >
         <Card.Img variant="top" src={park.small_image} alt={park.name} />
         <Card.Body>
           <Card.Title>{park.name}</Card.Title>
