@@ -77,20 +77,22 @@ class App extends Component {
           </Navbar>
 
           {/* React route declarations */}
-          <Switch>
-            <Route path="/parks">
-              <ParksContainer
-                parks={this.props.parks}
-                loading={this.props.loading}
-              />
-            </Route>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/">
-              <HomeCarousel parks={this.props.parks} />
-            </Route>
-          </Switch>
+          <Container className="body-content justify-content-center">
+            <Switch>
+              <Route path="/parks">
+                <ParksContainer
+                  parks={this.props.parks}
+                  loading={this.props.loading}
+                />
+              </Route>
+              <Route path="/about">
+                <About />
+              </Route>
+              <Route path="/">
+                <HomeCarousel parks={this.props.parks} />
+              </Route>
+            </Switch>
+          </Container>
         </div>
       </Router>
     );
