@@ -9,6 +9,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { Component } from 'react';
 import { fetchParks } from './actions/parksActions';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
