@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
   useRouteMatch,
-  useParams
 } from "react-router-dom";
-import { LinkContainer } from 'react-router-bootstrap';
 import ParksList from './ParksList';
 import Park from './Park';
 // import apiResponse from './apiResponse';
@@ -24,12 +21,14 @@ function ParksContainer(props) {
   const showParkModal = (park) => {
     setPark(park);
     setShowPark(true);
-  }
+    window.history.pushState({'page_name': 'parks'}, '', '/parks');
+  };
 
   const closeModal = () => {
     setPark({});
-    setShowPark(false)
-  }
+    setShowPark(false);
+    window.history.back();
+  };
 
   return (
     <Container>
@@ -62,7 +61,7 @@ function ParksContainer(props) {
 
       <Switch>
         <Route path={`${match.path}/:parkName`}>
-          {}
+          {<div>Hello.</div>}
         </Route>
       </Switch>
     </Container>
