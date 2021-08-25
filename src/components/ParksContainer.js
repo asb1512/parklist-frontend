@@ -51,21 +51,21 @@ function ParksContainer(props) {
 
   const parkColumns = () => {
     return (
-      <Container>
+      <Container className="justify-content-center">
         <Row>
-          <Col>
+          <Col className="p0" >
             <ParksList
               parks={props.parks?.slice(0, 21)}
               showPark={showParkModal}
             />
           </Col>
-          <Col>
+          <Col className="p0" >
             <ParksList
               parks={props.parks?.slice(21, 42)}
               showPark={showParkModal}
             />
           </Col>
-          <Col>
+          <Col className="p0" >
             <ParksList
               parks={props.parks?.slice(42)}
               showPark={showParkModal}
