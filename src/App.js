@@ -15,6 +15,7 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import ParksContainer from './components/ParksContainer';
 import HomeCarousel from './components/HomeCarousel';
+import About from './components/About';
 
 class App extends Component {
 
@@ -82,6 +83,9 @@ class App extends Component {
                 parks={this.props.parks}
                 loading={this.props.loading}
               />
+            </Route>
+            <Route path="/about">
+              <About />
             </Route>
             <Route path="/">
               <HomeCarousel parks={this.props.parks} />
