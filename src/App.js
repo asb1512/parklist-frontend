@@ -14,11 +14,17 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Fade from 'react-bootstrap/Fade';
+import Offcanvas from 'react-bootstrap/Offcanvas';
 import ParksContainer from './components/ParksContainer';
 import HomeCarousel from './components/HomeCarousel';
 import About from './components/About';
+import AuthForm from './components/AuthForm';
 
 class App extends Component {
+
+  state = {
+    showAuth: false,
+  }
 
   componentDidMount() {
     fetchParks();
@@ -28,6 +34,18 @@ class App extends Component {
     this.setState({
       renderParksContainer: true,
       renderHomeCarousel: false,
+    })
+  }
+
+  handleAuthOpen = () => {
+    this.setState({
+      showAuth: true
+    })
+  }
+
+  handleAuthClose = () => {
+    this.setState({
+      showAuth: false
     })
   }
 
@@ -61,13 +79,32 @@ class App extends Component {
                   </LinkContainer>
                 </Nav>
                 <Nav>
-                  <Nav.Link className="justify-content-end">
+                  <Nav.Link
+                    className="justify-content-end"
+                    onClick={this.handleAuthOpen}
+                  >
                     Login
                   </Nav.Link>
                 </Nav>
               </Navbar.Collapse>
             </Container>
           </Navbar>
+
+          {/* Bootstrap Offcanvas Login/Signup Form */}
+          <Offcanvas
+          show={this.state.showAuth}
+          onHide={this.handleAuthClose}
+          placement='end'
+          backdrop={false}
+          scroll={true}
+          >
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title></Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              <AuthForm />
+            </Offcanvas.Body>
+          </Offcanvas>
 
           {/* React route declarations */}
           <Container className="body-content justify-content-center">
