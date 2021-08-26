@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 export default function SignupForm(props) {
-  console.log("SignupForm props", props)
+
   const [email, setEmail] = useState('')
   const [bio, setBio] = useState('')
 
@@ -17,8 +17,13 @@ export default function SignupForm(props) {
     setBio(event.target.value);
   }
 
+  const handleOnSubmit = event => {
+    event.preventDefault();
+    props.userSignup({email: email, bio: bio})
+  }
+
   return (
-    <Form>
+    <Form onSubmit={event => handleOnSubmit(event)} >
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <FloatingLabel label='Enter email'>
           <Form.Control
@@ -48,7 +53,7 @@ export default function SignupForm(props) {
       <Container className="d-grid">
         <Button
           className="pl-green-bg rounded-pill no-border"
-          onClick={props.userSignup({ email: email, bio: bio })}
+          type="submit"
         >
           Sign up
         </Button>
