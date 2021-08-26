@@ -8,12 +8,10 @@ import {
 import { LinkContainer } from 'react-router-bootstrap';
 import { Component } from 'react';
 import { fetchParks } from './actions/parksActions';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import './App.css'
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
+import Fade from 'react-bootstrap/Fade';
 import ParksContainer from './components/ParksContainer';
 import HomeCarousel from './components/HomeCarousel';
 import About from './components/About';
@@ -74,7 +72,9 @@ class App extends Component {
                 />
               </Route>
               <Route path="/about">
-                <About />
+                <Fade>
+                  <About />
+                </Fade>
               </Route>
               <Route path="/">
                 <HomeCarousel parks={this.props.parks} />
