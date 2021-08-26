@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { userSignup } from '../../actions/parksActions';
+import { authenticateUser } from '../../actions/parksActions';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import LoginForm from '../auth/LoginForm';
@@ -16,7 +16,7 @@ class AuthFormContainer extends Component {
             <LoginForm />
           </Tab>
           <Tab eventKey="signup" title="Signup">
-            <SignupForm userSignup={this.props.userSignup} />
+            <SignupForm authenticateUser={this.props.authenticateUser} />
           </Tab>
         </Tabs>
       )
@@ -29,7 +29,7 @@ class AuthFormContainer extends Component {
             <LoginForm />
           </Tab>
           <Tab eventKey="want-to-visit" title="Want to Visit">
-            <SignupForm userSignup={this.props.userSignup} />
+            <SignupForm authenticateUser={this.props.authenticateUser} />
           </Tab>
         </Tabs>
       )
@@ -52,7 +52,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    userSignup: (user) => dispatch(userSignup(user))
+    authenticateUser: (user) => dispatch(authenticateUser(user))
   }
 }
 
