@@ -15,10 +15,10 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Fade from 'react-bootstrap/Fade';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import ParksContainer from './components/ParksContainer';
-import HomeCarousel from './components/HomeCarousel';
-import About from './components/About';
-import AuthFormContainer from './components/AuthFormContainer';
+import ParksContainer from './components/containers/ParksContainer';
+import HomeCarousel from './components/presentational/HomeCarousel';
+import About from './components/static/About';
+import AuthFormContainer from './components/containers/AuthFormContainer';
 
 class App extends Component {
 

@@ -4,8 +4,8 @@ import {
   Route,
   useRouteMatch,
 } from "react-router-dom";
-import ParksList from './ParksList';
-import Park from './Park';
+import ParksList from '../presentational/ParksList';
+import Park from '../presentational/Park';
 // import apiResponse from './apiResponse';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';

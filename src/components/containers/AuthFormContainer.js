@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { userSignup } from '../actions/parksActions';
+import { userSignup } from '../../actions/parksActions';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
-import LoginForm from './LoginForm';
-import SignupForm from './SignupForm';
+import LoginForm from '../auth/LoginForm';
+import SignupForm from '../auth/SignupForm';
 
 class AuthFormContainer extends Component {
   render() {
