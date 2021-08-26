@@ -9,9 +9,22 @@ export const fetchParks = () => {
   }
 }
 
-export const userSignup = () => {
+export const userSignup = (user) => {
+  const configObj = {
+    method: "POST",
+    header: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify(user)
+  }
   return (dispatch) => {
     dispatch({type: "LOADING_ACCOUNT_CREATION"});
-    
+    fetch("http://localhost:3000/users", configObj)
+    .then(resp => resp.json())
+    .then(respJson => {
+      dispatch({ type: "CREATE_USER"})
+    })
+    .catch(error => console.log(error))
   }
 }
