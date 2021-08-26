@@ -19,7 +19,7 @@ export default function SignupForm(props) {
 
   const handleOnSubmit = event => {
     event.preventDefault();
-    props.userSignup({email: email, bio: bio})
+    props.authenticateUser({email: email, bio: bio})
   }
 
   return (
