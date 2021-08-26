@@ -21,10 +21,17 @@ class AuthFormContainer extends Component {
   };
 };
 
+const mapStateToProps = state => {
+  return {
+    currentUser: state.currentUser,
+    authLoading: state.authLoading,
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     userSignup: (user) => dispatch(userSignup(user))
   }
 }
 
-export default connect(null, mapDispatchToProps)(AuthFormContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(AuthFormContainer);
