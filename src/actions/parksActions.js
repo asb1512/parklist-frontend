@@ -13,20 +13,19 @@ export const userSignup = (user) => {
   console.log("userSignup Action Creator", user)
   const configObj = {
     method: "POST",
-    header: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
+    headers: {
+      "Content-Type": "application/json"
     },
-    body: JSON.stringify(user)
+    body: JSON.stringify({ user })
   }
   return (dispatch) => {
-    dispatch({type: "LOADING_ACCOUNT_CREATION"});
+    dispatch({ type: "LOADING_ACCOUNT_CREATION" });
     fetch("http://localhost:3000/users", configObj)
-    .then(resp => resp.json())
-    .then(respJson => {
-      console.log("userSignupServerResponse", respJson)
-      dispatch({ type: "CREATE_USER", respJson})
-    })
-    .catch(error => console.log(error))
+      .then(resp => resp.json())
+      .then(respJson => {
+        console.log("userSignupServerResponse", respJson)
+        dispatch({ type: "CREATE_USER", user: respJson })
+      })
+      .catch(error => console.log("Signup Error", error))
   }
 }
