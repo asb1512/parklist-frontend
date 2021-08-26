@@ -10,6 +10,7 @@ export const fetchParks = () => {
 }
 
 export const userSignup = (user) => {
+  console.log("userSignup Action Creator", user)
   const configObj = {
     method: "POST",
     header: {
