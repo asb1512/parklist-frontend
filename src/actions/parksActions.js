@@ -7,4 +7,11 @@ export const fetchParks = () => {
         dispatch({ type: "ADD_PARKS", respJson })
       })
   }
-} 
+}
+
+export const userSignup = () => {
+  return (dispatch) => {
+    dispatch({type: "LOADING_ACCOUNT_CREATION"});
+    
+  }
+}
