@@ -14,6 +14,18 @@
   color: #39b54a;
 }
 
+.pl-green-bg {
+  background-color: #39b54a;
+}
+
 .pl-navy {
   color: #3c516e;
+}
+
+.pl-navy-bg {
+  background-color: #3c516e;
+}
+
+.auth-button {
+  border: none;
 }
