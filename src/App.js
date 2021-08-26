@@ -83,7 +83,7 @@ class App extends Component {
                     className="justify-content-end"
                     onClick={this.handleAuthOpen}
                   >
-                    Login
+                    {this.props.currentUser ? this.props.currentUser.email : "Login"}
                   </Nav.Link>
                 </Nav>
               </Navbar.Collapse>
@@ -135,6 +135,8 @@ const mapStateToProps = state => {
   return {
     parks: state.parks,
     loading: state.loading,
+    currentUser: state.currentUser,
+    authLoading: state.authLoading,
   }
 };
 
