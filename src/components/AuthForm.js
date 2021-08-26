@@ -14,7 +14,7 @@ class AuthForm extends Component {
           <LoginForm />
         </Tab>
         <Tab eventKey="signup" title="Signup">
-          <SignupForm />
+          <SignupForm userSignup={this.props.userSignup} />
         </Tab>
       </Tabs>
     );
@@ -27,4 +27,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, userSignup())(AuthForm);
+export default connect(null, mapDispatchToProps)(AuthForm);
