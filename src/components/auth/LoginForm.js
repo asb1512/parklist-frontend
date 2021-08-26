@@ -4,22 +4,27 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
-export default function LoginForm() {
+export default function LoginForm(props) {
 
   const [email, setEmail] = useState('')
 
-  const handleChange = (event) => {
+  const handleEmailChange = (event) => {
     setEmail(event.target.value)
   }
 
+  const handleOnSubmit = event => {
+    event.preventDefault();
+    props.authenticateUser({ email: email })
+  }
+
   return (
-    <Form>
+    <Form onSubmit={event => handleOnSubmit(event)}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <FloatingLabel label='Enter email'>
           <Form.Control
             type="email"
             placeholder="Enter email"
-            onChange={event => handleChange(event)}
+            onChange={event => handleEmailChange(event)}
             value={email}
           />
         </FloatingLabel>
