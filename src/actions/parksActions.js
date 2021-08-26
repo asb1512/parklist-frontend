@@ -24,7 +24,8 @@ export const userSignup = (user) => {
     fetch("http://localhost:3000/users", configObj)
     .then(resp => resp.json())
     .then(respJson => {
-      dispatch({ type: "CREATE_USER"})
+      console.log("userSignupServerResponse", respJson)
+      dispatch({ type: "CREATE_USER", respJson})
     })
     .catch(error => console.log(error))
   }
