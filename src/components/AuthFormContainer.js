@@ -6,7 +6,7 @@ import Tab from 'react-bootstrap/Tab';
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
 
-class AuthForm extends Component {
+class AuthFormContainer extends Component {
   render() {
     return (
       <Tabs defaultActiveKey="login" className="mb-3">
@@ -27,4 +27,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(AuthForm);
+export default connect(null, mapDispatchToProps)(AuthFormContainer);

@@ -18,7 +18,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import ParksContainer from './components/ParksContainer';
 import HomeCarousel from './components/HomeCarousel';
 import About from './components/About';
-import AuthForm from './components/AuthForm';
+import AuthFormContainer from './components/AuthFormContainer';
 
 class App extends Component {
 
@@ -102,7 +102,7 @@ class App extends Component {
               <Offcanvas.Title></Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <AuthForm />
+              <AuthFormContainer />
             </Offcanvas.Body>
           </Offcanvas>
 
