@@ -16,24 +16,18 @@ export default function parksReducer(state = [], action) {
         loading: false
       }
 
-    case "LOADING_ACCOUNT_CREATION":
+    case "USER_AUTH_LOADING":
       return {
         ...state,
         authLoading: true,
       }
 
-    case "CREATE_USER":
+    case "AUTHENTICATE_USER":
       return {
         ...state,
         authLoading: false,
         currentUser: action.user,
       }
-
-    case "AUTHENTICATING_USER":
-    return {
-      ...state,
-      authLoading: true,
-    }
 
     default:
       return state
