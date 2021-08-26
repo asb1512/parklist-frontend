@@ -24,7 +24,9 @@ export default function parksReducer(state = [], action) {
 
     case "CREATE_USER":
       return {
-        state
+        ...state,
+        authLoading: false,
+        currentUser: action.user,
       }
 
     default:
