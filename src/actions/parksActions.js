@@ -9,7 +9,7 @@ export const fetchParks = () => {
   }
 }
 
-export const userSignup = (user) => {
+export const authenticateUser = (user) => {
   console.log("userSignup Action Creator", user)
   const configObj = {
     method: "POST",
@@ -19,28 +19,13 @@ export const userSignup = (user) => {
     body: JSON.stringify({ user })
   }
   return (dispatch) => {
-    dispatch({ type: "LOADING_ACCOUNT_CREATION" });
+    dispatch({ type: "USER_AUTH_LOADING" });
     fetch("http://localhost:3000/users", configObj)
       .then(resp => resp.json())
       .then(respJson => {
         console.log("userSignupServerResponse", respJson)
-        dispatch({ type: "CREATE_USER", user: respJson })
+        dispatch({ type: "AUTHENTICATE_USER", user: respJson })
       })
-      .catch(error => console.log("Signup Error", error))
-  }
-}
-
-export const userLogin = (user) => {
-  console.log("userLogin Action Creator", user)
-  const configObj = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ user })
-  }
-  return (dispatch) => {
-    dispatch({type: "AUTHENTICATING_USER"});
-    
+      .catch(error => console.log("Authentication Error", error))
   }
 }
