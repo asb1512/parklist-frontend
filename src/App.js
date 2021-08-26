@@ -8,6 +8,8 @@ import {
 import { LinkContainer } from 'react-router-bootstrap';
 import { Component } from 'react';
 import { fetchParks } from './actions/parksActions';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -57,6 +59,11 @@ class App extends Component {
                   <LinkContainer to="/about">
                     <Nav.Link>About</Nav.Link>
                   </LinkContainer>
+                </Nav>
+                <Nav>
+                  <Nav.Link className="justify-content-end">
+                    Login
+                  </Nav.Link>
                 </Nav>
               </Navbar.Collapse>
             </Container>
