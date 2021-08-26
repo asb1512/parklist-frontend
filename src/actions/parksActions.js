@@ -29,3 +29,18 @@ export const userSignup = (user) => {
       .catch(error => console.log("Signup Error", error))
   }
 }
+
+export const userLogin = (user) => {
+  console.log("userLogin Action Creator", user)
+  const configObj = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ user })
+  }
+  return (dispatch) => {
+    dispatch({type: "AUTHENTICATING_USER"});
+    
+  }
+}
