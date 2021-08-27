@@ -123,6 +123,7 @@ class App extends Component {
                   parks={this.props.parks}
                   loading={this.props.loading}
                   currentUser={this.props.currentUser}
+                  addParkToUserList={this.props.addParkToUserList}
                 />
               </Route>
               <Route path="/about">
@@ -154,7 +155,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchParks: () => dispatch(fetchParks()),
     logoutUser: () => dispatch({type: "USER_LOGOUT"}),
-    addParkToUserList: () => dispatch({ type: ""})
+    addParkToUserList: (info) => dispatch(addParkToUserList(info))
   };
 };
 
