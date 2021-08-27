@@ -22,7 +22,7 @@ export default function parksReducer(state = [], action) {
         loadingUsers: true,
       }
 
-    case "FETCH_PARKS":
+    case "FETCH_USERS":
       return {
         ...state,
         users: action.respJson,
