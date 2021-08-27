@@ -6,7 +6,6 @@ import {
 } from "react-router-dom";
 import ParksList from '../presentational/ParksList';
 import Park from '../presentational/Park';
-// import apiResponse from './apiResponse';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -76,6 +75,7 @@ function ParksContainer(props) {
           park={park}
           show={showPark}
           closeModal={closeModal}
+          active={!!props.currentUser}
         />
 
         <Switch>
