@@ -9,6 +9,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { Component } from 'react';
 import { fetchParks } from './actions/parksActions';
 import { addParkToUserList } from './actions/parksActions';
+import { removeParkFromUserList } from './actions/parksActions';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import Navbar from 'react-bootstrap/Navbar';
@@ -94,24 +95,27 @@ class App extends Component {
 
           {/* Bootstrap Offcanvas Form */}
           <Offcanvas
-          show={this.state.showAuth}
-          onHide={this.handleAuthClose}
-          placement='end'
-          backdrop={false}
-          scroll={true}
+            show={this.state.showAuth}
+            onHide={this.handleAuthClose}
+            placement='end'
+            backdrop={false}
+            scroll={true}
           >
             <Offcanvas.Header closeButton>
               {this.props.currentUser ?
-              <Button
-                variant="outline-danger"
-                onClick={this.props.logoutUser}
-              >
-                Logout
-              </Button> : null}
+                <Button
+                  variant="outline-danger"
+                  onClick={this.props.logoutUser}
+                >
+                  Logout
+                </Button> : null}
               <Offcanvas.Title></Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <AuthFormContainer />
+              <AuthFormContainer
+                currentUser={this.props.currentUser}
+                removeParkFromUserList={this.props.removeParkFromUserList}
+              />
             </Offcanvas.Body>
           </Offcanvas>
 
@@ -154,8 +158,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchParks: () => dispatch(fetchParks()),
-    logoutUser: () => dispatch({type: "USER_LOGOUT"}),
-    addParkToUserList: (info) => dispatch(addParkToUserList(info))
+    logoutUser: () => dispatch({ type: "USER_LOGOUT" }),
+    addParkToUserList: (info) => dispatch(addParkToUserList(info)),
+    removeParkFromUserList: (info) => dispatch(removeParkFromUserList(info)),
   };
 };
 
