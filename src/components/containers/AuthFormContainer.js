@@ -15,7 +15,7 @@ class AuthFormContainer extends Component {
       return (
         <Tabs defaultActiveKey="login" className="mb-3">
           <Tab eventKey="login" title="Login">
-            <LoginForm />
+            <LoginForm authenticateUser={this.props.authenticateUser} />
           </Tab>
           <Tab eventKey="signup" title="Signup">
             <SignupForm authenticateUser={this.props.authenticateUser} />
