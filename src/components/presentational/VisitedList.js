@@ -1,5 +1,20 @@
-export default function VisitedList() {
+import ListGroup from 'react-bootstrap/ListGroup';
+
+export default function VisitedList(props) {
+
+  const visitedParksList = props.visitedParks?.map(visitedPark => {
+    let result = props.allParks.filter(park => visitedPark.park_id === park.id);
+    console.log("matching park", result[0])
+    return (
+      <ListGroup.Item>{result[0].name} National Park</ListGroup.Item>
+    )
+  })
+
   return (
-    <div>Visited List</div>
+    <div>
+      <ListGroup>
+        {visitedParksList}
+      </ListGroup>
+    </div>
   )
 }
