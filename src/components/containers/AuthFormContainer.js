@@ -28,10 +28,10 @@ class AuthFormContainer extends Component {
       return (
         <Tabs defaultActiveKey="visited" className="mb-3">
           <Tab eventKey="visited" title="Visited">
-            <VisitedList />
+            <VisitedList currentUser={this.state.currentUser.visited_parks} />
           </Tab>
           <Tab eventKey="want-to-visit" title="Want to Visit">
-            <WantToVisitList />
+            <WantToVisitList current={this.state.currentUser.desired_parks} />
           </Tab>
         </Tabs>
       )
