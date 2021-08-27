@@ -15,7 +15,7 @@ class Park extends Component {
         fullscreen
       >
         <Modal.Header closeButton>
-          <Modal.Title>{this.props.park.name}</Modal.Title>
+          <Modal.Title>{this.props.park.name} National Park</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Image src={this.props.park.image} fluid />
