@@ -8,6 +8,7 @@ import {
 import { LinkContainer } from 'react-router-bootstrap';
 import { Component } from 'react';
 import { fetchParks } from './actions/parksActions';
+import { addParkToUserList } from './actions/parksActions';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import Navbar from 'react-bootstrap/Navbar';
@@ -152,7 +153,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchParks: () => dispatch(fetchParks()),
-    logoutUser: () => dispatch({type: "USER_LOGOUT"})
+    logoutUser: () => dispatch({type: "USER_LOGOUT"}),
+    addParkToUserList: () => dispatch({ type: ""})
   };
 };
 
