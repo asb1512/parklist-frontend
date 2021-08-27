@@ -1,9 +1,18 @@
+import {connect} from 'react-redux';
 import UserList from "../presentational/UserList";
 
-export default function AdminContainer() {
+function AdminContainer() {
   return (
     <>
       <UserList />
     </>
   )
 }
+
+const mapStateToProps = state => {
+  return {
+    
+  }
+}
+
+export default connect()(AdminContainer);
