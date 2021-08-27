@@ -16,6 +16,19 @@ export default function parksReducer(state = [], action) {
         loading: false
       }
 
+    case "LOADING_USERS":
+      return {
+        ...state,
+        loadingUsers: true,
+      }
+
+    case "FETCH_PARKS":
+      return {
+        ...state,
+        users: action.respJson,
+        loadingUsers: false,
+      }
+
     case "USER_PARK_LOADING":
       return {
         ...state, 
