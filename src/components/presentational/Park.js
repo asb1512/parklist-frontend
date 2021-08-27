@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Image from 'react-bootstrap/Image';
 import Modal from 'react-bootstrap/Modal';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
 
 
@@ -23,9 +24,14 @@ class Park extends Component {
           <Button variant="secondary" onClick={this.props.closeModal}>
             Close
           </Button>
-          <Button variant="primary" onClick={this.props.closeModal}>
-            Save Changes
-          </Button>
+          <ButtonGroup>
+            <Button variant="success">
+              Visited
+            </Button>
+            <Button variant="warning">
+              Want to
+            </Button>
+          </ButtonGroup>
         </Modal.Footer>
       </Modal>
     )
