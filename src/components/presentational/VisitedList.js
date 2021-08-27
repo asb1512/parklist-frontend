@@ -1,12 +1,28 @@
 import ListGroup from 'react-bootstrap/ListGroup';
+import CloseButton from 'react-bootstrap/CloseButton';
 
 export default function VisitedList(props) {
 
   const visitedParksList = props.visitedParks?.map(visitedPark => {
     let result = props.allParks.filter(park => visitedPark.park_id === park.id);
-    console.log("matching park", result[0])
+
+    const handleParkremoval = () => {
+      props.removeParkFromUserList({
+        visited: true,
+        visited_id: visitedPark.id,
+        user_id: props.currentUser.id,
+        park_id: result[0].id
+      })
+    }
+
     return (
-      <ListGroup.Item>{result[0].name} National Park</ListGroup.Item>
+      <ListGroup.Item>
+        {result[0].name} National Park
+        <CloseButton
+          className="float-end"
+          onClick={() => handleParkremoval()}
+        />
+      </ListGroup.Item>
     )
   })
 
