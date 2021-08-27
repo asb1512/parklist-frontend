@@ -76,6 +76,8 @@ function ParksContainer(props) {
           show={showPark}
           closeModal={closeModal}
           active={!!props.currentUser}
+          currentUser={props.currentUser}
+          addParkToUserList={props.addParkToUserList}
         />
 
         <Switch>
