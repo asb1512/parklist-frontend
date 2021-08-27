@@ -34,7 +34,10 @@ export default function LoginForm(props) {
       </Form.Group>
 
       <Container className="d-grid">
-        <Button className="pl-green-bg rounded-pill no-border">
+        <Button
+          className="pl-green-bg rounded-pill no-border"
+          type="submit"
+        >
           Login
         </Button>
       </Container>
