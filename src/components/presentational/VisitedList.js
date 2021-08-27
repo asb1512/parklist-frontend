@@ -14,6 +14,9 @@ export default function VisitedList(props) {
     <div>
       <ListGroup>
         {visitedParksList}
+        <ListGroup.Item active>
+          {props.visitedParks.length}/63 parks visited
+        </ListGroup.Item>
       </ListGroup>
     </div>
   )
