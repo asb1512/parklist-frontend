@@ -11,6 +11,19 @@ export const fetchParks = () => {
   }
 }
 
+export const fetchUsers = () => {
+  return (dispatch) => {
+    dispatch({type: "LOADING_USERS"});
+    fetch(`${BASE_URL}users`)
+    .then(resp => resp.json())
+    .then(respJson => {
+      console.log("fetchUsers Server Response", respJson)
+      dispatch({type: "FETCH_USERS", respJson})
+    })
+    .catch(error => console.log(error))
+  }
+}
+
 export const authenticateUser = (user) => {
   const configObj = {
     method: "POST",
