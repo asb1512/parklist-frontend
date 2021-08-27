@@ -16,9 +16,17 @@ export default function parksReducer(state = [], action) {
         loading: false
       }
 
+    case "ADD_PARK_LOADING":
+      return {
+        ...state, 
+        userListLoading: true,
+      }
+
     case "ADD_PARK_TO_USER_LIST":
       return {
-        
+        ...state,
+        userListLoading: false,
+        currentUser: action.respJson,
       }
 
     case "USER_AUTH_LOADING":
