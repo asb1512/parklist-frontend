@@ -9,7 +9,7 @@ export default function parksReducer(state = [], action) {
         loading: true,
       }
 
-    case "ADD_PARKS":
+    case "FETCH_PARKS":
       return {
         ...state,
         parks: action.respJson,
