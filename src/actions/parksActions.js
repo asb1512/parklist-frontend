@@ -29,3 +29,14 @@ export const authenticateUser = (user) => {
       .catch(error => console.log("Authentication Error", error))
   }
 }
+
+export const addParkToUserList = (info) => {
+  console.log("addParkToUserList Action Creator", info)
+  const configObj = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ info })
+  }
+}
