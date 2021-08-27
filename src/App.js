@@ -15,13 +15,13 @@ import './App.css'
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
-import Fade from 'react-bootstrap/Fade';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Button from 'react-bootstrap/Button';
 import ParksContainer from './components/containers/ParksContainer';
 import HomeCarousel from './components/presentational/HomeCarousel';
 import About from './components/static/About';
 import AuthFormContainer from './components/containers/AuthFormContainer';
+import AdminContainer from './components/containers/AdminContainer';
 
 class App extends Component {
 
@@ -52,7 +52,17 @@ class App extends Component {
     })
   }
 
+  renderAdmin = () => {
+
+    return (
+      <LinkContainer to="/admin">
+        <Nav.Link>Admin</Nav.Link>
+      </LinkContainer>
+    )
+  }
+
   render() {
+    console.log("App Props", this.props)
     return (
       <Router>
         <div className="App">
@@ -80,6 +90,7 @@ class App extends Component {
                   <LinkContainer to="/about">
                     <Nav.Link>About</Nav.Link>
                   </LinkContainer>
+                  {this.props.currentUser === undefined ? null : this.renderAdmin()}
                 </Nav>
                 <Nav>
                   <Nav.Link
@@ -130,10 +141,11 @@ class App extends Component {
                   addParkToUserList={this.props.addParkToUserList}
                 />
               </Route>
+              <Route path="/admin">
+                <AdminContainer />
+              </Route>
               <Route path="/about">
-                <Fade>
-                  <About />
-                </Fade>
+                <About />
               </Route>
               <Route path="/">
                 <HomeCarousel parks={this.props.parks} />
