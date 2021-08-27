@@ -6,6 +6,32 @@ import Button from 'react-bootstrap/Button';
 
 export default function Park(props) {
 
+  const activeButtons = () => {
+    return (
+      <ButtonGroup>
+        <Button variant="success">
+          Visited
+        </Button>
+        <Button variant="warning">
+          Want to
+        </Button>
+      </ButtonGroup>
+    )
+  }
+
+  const disabledButtons = () => {
+    return (
+      <ButtonGroup>
+        <Button variant="success" disabled>
+          Visited
+        </Button>
+        <Button variant="warning" disabled>
+          Want to
+        </Button>
+      </ButtonGroup>
+    )
+  }
+
   return (
     <Modal
       show={props.show}
@@ -22,14 +48,9 @@ export default function Park(props) {
         <Button variant="secondary" onClick={props.closeModal}>
           Close
         </Button>
-        <ButtonGroup>
-          <Button variant="success" disabled>
-            Visited
-          </Button>
-          <Button variant="warning" disabled>
-            Want to
-          </Button>
-        </ButtonGroup>
+        <>
+          {props.active ? activeButtons() : disabledButtons()}
+        </>
       </Modal.Footer>
     </Modal>
   )
