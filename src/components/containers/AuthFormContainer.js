@@ -5,6 +5,8 @@ import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import LoginForm from '../auth/LoginForm';
 import SignupForm from '../auth/SignupForm';
+import VisitedList from '../presentational/VisitedList';
+import WantToVisitList from '../presentational/WantToVisitList';
 
 class AuthFormContainer extends Component {
   render() {
@@ -26,10 +28,10 @@ class AuthFormContainer extends Component {
       return (
         <Tabs defaultActiveKey="visited" className="mb-3">
           <Tab eventKey="visited" title="Visited">
-            <LoginForm />
+            <VisitedList />
           </Tab>
           <Tab eventKey="want-to-visit" title="Want to Visit">
-            <SignupForm authenticateUser={this.props.authenticateUser} />
+            <WantToVisitList />
           </Tab>
         </Tabs>
       )
