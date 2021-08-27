@@ -16,13 +16,13 @@ export default function parksReducer(state = [], action) {
         loading: false
       }
 
-    case "ADD_PARK_LOADING":
+    case "USER_PARK_LOADING":
       return {
         ...state, 
         userListLoading: true,
       }
 
-    case "ADD_PARK_TO_USER_LIST":
+    case "UPDATE_USER_LIST":
       return {
         ...state,
         userListLoading: false,
