@@ -103,6 +103,7 @@ class App extends Component {
               {this.props.currentUser ?
               <Button
                 variant="outline-danger"
+                onClick={this.props.logoutUser}
               >
                 Logout
               </Button> : null}
@@ -150,6 +151,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchParks: () => dispatch(fetchParks()),
+    logoutUser: () => dispatch({type: "USER_LOGOUT"})
   };
 };
 
