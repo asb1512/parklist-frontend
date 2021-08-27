@@ -31,12 +31,16 @@ class AuthFormContainer extends Component {
             <VisitedList
               visitedParks={this.props.currentUser.visited_parks}
               allParks={this.props.parks}
+              currentUser={this.props.currentUser}
+              removeParkFromUserList={this.props.removeParkFromUserList}
             />
           </Tab>
           <Tab eventKey="want-to-visit" title="Want to Visit">
             <WantToVisitList
               desiredParks={this.props.currentUser.desired_parks}
               allParks={this.props.parks}
+              currentUser={this.props.currentUser}
+              removeParkFromUserList={this.props.removeParkFromUserList}
             />
           </Tab>
         </Tabs>
