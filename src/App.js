@@ -15,6 +15,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Fade from 'react-bootstrap/Fade';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import Button from 'react-bootstrap/Button';
 import ParksContainer from './components/containers/ParksContainer';
 import HomeCarousel from './components/presentational/HomeCarousel';
 import About from './components/static/About';
@@ -27,7 +28,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetchParks();
+    this.props.fetchParks()
   }
 
   renderParks = () => {
@@ -99,6 +100,12 @@ class App extends Component {
           scroll={true}
           >
             <Offcanvas.Header closeButton>
+              {this.props.currentUser ?
+              <Button
+                variant="outline-danger"
+              >
+                Logout
+              </Button> : null}
               <Offcanvas.Title></Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
@@ -146,4 +153,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, fetchParks())(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
