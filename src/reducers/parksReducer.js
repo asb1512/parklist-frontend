@@ -29,6 +29,12 @@ export default function parksReducer(state = [], action) {
         currentUser: action.user,
       }
 
+    case "USER_LOGOUT":
+      const newState = {...state}
+      delete newState.currentUser
+      delete newState.authLoading
+      return newState
+
     default:
       return state
   }
