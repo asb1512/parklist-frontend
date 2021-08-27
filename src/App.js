@@ -91,7 +91,7 @@ class App extends Component {
             </Container>
           </Navbar>
 
-          {/* Bootstrap Offcanvas Login/Signup Form */}
+          {/* Bootstrap Offcanvas Form */}
           <Offcanvas
           show={this.state.showAuth}
           onHide={this.handleAuthClose}
@@ -121,6 +121,7 @@ class App extends Component {
                 <ParksContainer
                   parks={this.props.parks}
                   loading={this.props.loading}
+                  currentUser={this.props.currentUser}
                 />
               </Route>
               <Route path="/about">
