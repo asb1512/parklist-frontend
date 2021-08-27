@@ -3,7 +3,6 @@ import Modal from 'react-bootstrap/Modal';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
 
-
 export default function Park(props) {
 
   const handleOnClickDesired = () => {
