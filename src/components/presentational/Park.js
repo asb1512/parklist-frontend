@@ -6,13 +6,35 @@ import Button from 'react-bootstrap/Button';
 
 export default function Park(props) {
 
+  const handleOnClickDesired = () => {
+    props.addParkToUserList({
+      desired: true,
+      user_id: props.currentUser.id,
+      park_id: props.park.id,
+    })
+  }
+
+  const handleOnClickVisited = () => {
+    props.addParkToUserList({
+      visited: true,
+      user_id: props.currentUser.id,
+      park_id: props.park.id,
+    })
+  }
+
   const activeButtons = () => {
     return (
       <ButtonGroup>
-        <Button variant="success">
+        <Button
+          variant="success"
+          onClick={handleOnClickVisited}
+        >
           Visited
         </Button>
-        <Button variant="warning">
+        <Button
+          variant="warning"
+          onClick={handleOnClickDesired}
+        >
           Want to
         </Button>
       </ButtonGroup>
