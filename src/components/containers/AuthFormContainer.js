@@ -28,10 +28,16 @@ class AuthFormContainer extends Component {
       return (
         <Tabs defaultActiveKey="visited" className="mb-3">
           <Tab eventKey="visited" title="Visited">
-            <VisitedList currentUser={this.state.currentUser.visited_parks} />
+            <VisitedList
+              visitedParks={this.props.currentUser.visited_parks}
+              allParks={this.props.parks}
+            />
           </Tab>
           <Tab eventKey="want-to-visit" title="Want to Visit">
-            <WantToVisitList current={this.state.currentUser.desired_parks} />
+            <WantToVisitList
+              desiredParks={this.props.currentUser.desired_parks}
+              allParks={this.props.parks}
+            />
           </Tab>
         </Tabs>
       )
@@ -49,6 +55,7 @@ const mapStateToProps = state => {
   return {
     currentUser: state.currentUser,
     authLoading: state.authLoading,
+    parks: state.parks,
   }
 }
 
