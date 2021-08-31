@@ -1,5 +1,4 @@
 import Container from 'react-bootstrap/Container';
-import LetterCounter from './LetterCounter';
 
 function About() {
   return (
